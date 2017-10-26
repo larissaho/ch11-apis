@@ -16,10 +16,10 @@ GetReview <- function(movie) {
   # See the interactive console for more detail:https://developer.nytimes.com/movie_reviews_v2.json#/Console/GET/reviews/search.json
   
   # Request data using your search query
-  base.url <- "https://api.nytimes.com/svc/movies/v2/reviews/search.json"
   query.params <- list(query = movie, api_key = api.key)
-  response <- GET(base.url, query = query.params)
+  response <- GET("https://api.nytimes.com/svc/movies/v2/reviews/search.json", query = query.params)
   body <- content(response, "text")
+  parsed.data <- fromJASON(body)
   
   # What type of variable does this return?
   
