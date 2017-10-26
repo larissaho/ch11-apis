@@ -4,6 +4,8 @@ library(dplyr)
 library(httr)
 
 # Read in your api-key.R file (that you'll create). Store your api-key in a variable in that file.
+source("api-key.R")
+
 # Write a function that allows you to specify a movie, that does the following:
 GetReview <- function(movie) {
   
@@ -13,9 +15,10 @@ GetReview <- function(movie) {
   # Note: the HTTR library will take care of spaces in the arguments
   # See the interactive console for more detail:https://developer.nytimes.com/movie_reviews_v2.json#/Console/GET/reviews/search.json
   
-  
   # Request data using your search query
-  
+  base.url <- "https://api.nytimes.com/svc/movies/v2/reviews/search.json"
+  query.params <- list()
+  response <- GET()
   
   # What type of variable does this return?
   
