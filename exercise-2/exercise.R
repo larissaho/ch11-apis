@@ -17,8 +17,9 @@ GetReview <- function(movie) {
   
   # Request data using your search query
   base.url <- "https://api.nytimes.com/svc/movies/v2/reviews/search.json"
-  query.params <- list()
-  response <- GET()
+  query.params <- list(query = movie, api_key = api.key)
+  response <- GET(base.url, query = query.params)
+  body <- content(response, "text")
   
   # What type of variable does this return?
   
